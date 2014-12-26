@@ -1,4 +1,4 @@
-package or.buddha.dao;
+package org.buddha.dao;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

@@ -1,4 +1,4 @@
-package or.buddha.dao;
+package org.buddha.dao;
 
 import java.util.ArrayList;
 import java.util.List;
