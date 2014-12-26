@@ -1,0 +1,25 @@
+<div class="btn-group">
+  <button type="button" class="btn btn-default" ng-click="navTo('pages/app-movies.html');" ng-click="dropdown1=0; dropdown2=0;dropdown3=0;" >
+    Home </button><span class="caret"></span>
+  </button>
+   
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown2=1-dropdown2; dropdown1=0;dropdown3=0;" ng-init="dropdown2=0">
+    Films <span class="caret"></span>
+  </button>
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown3=1-dropdown; dropdown1=0; dropdown2=0;" ng-init="dropdown3=0">
+    DashBoard <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu label-success" role="menu" ng-show="dropdown3>0">
+    <li class="label-success"><a href="#">VideoWeb Dashboard</a></li>
+    <li class="divider label-success"></li>
+    <li class="label-success"><a href="#">About</a></li>
+  </ul>
+  <ul class="dropdown-menu label-primary" role="menu" ng-show="dropdown2>0">
+    <li ng-click="navTo('pages/app-add.html');" class="label-primary"><a href="#">Ajouter Film</a></li>
+    <li class="label-primary"><a href="#">Editer un Film</a></li>
+    <li class="divider label-primary"></li>
+    <li class="label-primary"> <a href="#">Emprunter un Film</a></li>
+    <li class="label-primary"><a href="#">Restituer un Film</a></li>
+     <li class="label-primary"><a href="#">Ajouter un utilisateur</a></li>
+  </ul>
+</div>

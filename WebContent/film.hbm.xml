@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping SYSTEM "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+<!-- ENV-MAPPING-AF-DLCODE -->
+<class name="org.buddha.business.Film" table="FILM">
+
+	<id name="filmId" type="int" column="filmid">
+ 		<generator class="increment" />
+ 	</id>
+    
+  	<property name="title" type="string" column="titre"/>
+  	<property name="summary" type="string" column="resume"/>
+  	<property name="pictureUrl" type="string" column="image" />
+  	<property name="duration" type="int" column="duree" />
+  	<property name="categories" type="string" column="categories" />
+  	<property name="actors" type="string" column="acteurs"/>
+  	<property name="productor" type="string" column="realisateur"/>
+  	<property name="is3D" type="string" column="3d" length="1"/>
+  	
+
+</class>
+</hibernate-mapping>
