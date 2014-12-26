@@ -49,7 +49,7 @@
                     </div>
                     <!-- Duree -->
                     <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.duree.$invalid)}">
-                       <h3><span class="col-sm-2 label label-primary"> Durée :</span></h3>
+                       <h3><span class="col-sm-2 label label-primary"> Dur&eacute;e :</span></h3>
                            
                        
 
@@ -71,7 +71,7 @@
                      <!-- Realisateur -->
                     <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.director.$invalid)}">
                         
-						<h3><span class="col-sm-2 label label-primary">Réalisateur :</span></h3>
+						<h3><span class="col-sm-2 label label-primary">R&eacute;alisateur :</span></h3>
                         <div class="col-sm-6">
                             <input type="text" id="director" name="director" ng-model="film.director" 
                                    ng-minlength="3" class="form-control" ng-focus="bdirector = true" ng-blur="bdirector = false"/>
@@ -110,8 +110,8 @@
                                    ng-model="film.image"/>
                         </div>
 
-						<div class="col-sm-7">
-							<img alt="jaquette" src="{{film.image}}">
+						<div class="col-sm-8 col-sm-offset-8">
+							<img alt="jaquette" src="{{film.image}}" width="56" height="75">
 						
 						</div>
 						
@@ -124,7 +124,7 @@
                     
                     <!-- Catégorie -->
                     <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.category.$invalid)}">
-                        <h3><span class="col-sm-2 label label-primary"> Catégorie :</span></h3>
+                        <h3><span class="col-sm-2 label label-primary"> Cat&eacute;gorie :</span></h3>
 
                         <div class="col-sm-6">
                             <input type="text" id="category" required name="category" class="form-control"
@@ -138,7 +138,7 @@
                     </div>
                     <!-- Résumé -->
                     <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.summary.$invalid)}">
-                       <h3><span class="col-sm-2 label label-primary"> Résumé :</span></h3>
+                       <h3><span class="col-sm-2 label label-primary"> R&eacute;sum&eacute; :</span></h3>
 
                         <div class="col-sm-6">
                             <textarea ng-model="film.summary" name="summary" id="summary" class="form-control"

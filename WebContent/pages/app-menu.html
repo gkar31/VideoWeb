@@ -1,18 +1,27 @@
 <div class="btn-group">
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown1=1-dropdown1" ng-init="dropdown1=0">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown1=1-dropdown1; dropdown2=0;dropdown3=0;" ng-init="dropdown1=0">
     Home <span class="caret"></span>
   </button>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown1=1-dropdown1" ng-init="dropdown1=0">
+   <button type="button" class="btn btn-primary" ng-click="navTo('pages/app-add.html');">Ajouter Film</button>
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown2=1-dropdown2; dropdown1=0;dropdown3=0;" ng-init="dropdown2=0">
     Add Film <span class="caret"></span>
   </button>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown1=1-dropdown1" ng-init="dropdown1=0">
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false" ng-click="dropdown3=1-dropdown; dropdown1=0; dropdown2=0;" ng-init="dropdown3=0">
     DashBoard <span class="caret"></span>
   </button>
-  <ul class="dropdown-menu" role="menu" ng-show="dropdown1>0">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
+  <ul class="dropdown-menu" role="menu" ng-show="dropdown3>0">
+    <li><a href="#">VideoWeb Dashboard</a></li>
+    <li><a href="#">Emprunter</a></li>
+    <li><a href="#">Restituer</a></li>
     <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+  <ul class="dropdown-menu" role="menu" ng-show="dropdown2>0">
+    <li ng-click="navTo('pages/app-add.html');"><a href="#">Ajouter Film</a></li>
+    <li><a href="#">Editer un Film</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Emprunter un Film</a></li>
+    <li><a href="#">Restituer un Film</a></li>
+     <li><a href="#">Ajouter un utilisateur</a></li>
   </ul>
 </div>

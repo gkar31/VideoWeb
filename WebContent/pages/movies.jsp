@@ -25,38 +25,9 @@
     <app-menu ng-controller="NavCtrl"></app-menu>
 
 		
-		<h1 ng-cloak>Movies List</h1>
+		
+		<div ng-include="srcpage"></div>
 		
 		
-		<table>
-		<tr ng-repeat="item in films">
-			<td><img ng-src="{{item.pictureUrl}}"/> </td>
-			<td>
-				<table>
-					<tr>
-						<td><h2>{{item.title}}</h2></td>
-					</tr>
-					<tr>
-						<td>{{item.summary}}</td>
-					</tr>
-					<tr>
-						<td><b>Un film de :&nbsp;</b>{{item.productor}}</td>
-					</tr>
-					<tr>
-						<td><b>avec :&nbsp;</b>{{item.actors}}</td>
-					</tr>
-					<tr>
-						<td><b>duree :&nbsp;</b><duration-movie duration-string="item.duration"></duration-movie></td>
-					</tr>
-					<tr>
-						<td><tag-list tag-string="item.categories"></tag-list></td>
-					</tr>
-				</table>
-				
-				<br>
-				
-			</td>
-		</tr>
-		</table>
 	</body>
 </html>

@@ -2,9 +2,14 @@
 angular.module('videoweb').controller('movieCtrl',function movieCtrl($scope,$http) {
     
     $scope.films=[];
+    
+    $scope.srcpage="pages/app-movies.html"
    
     
-    
+    $scope.navTo=function(url)
+    {
+    	$scope.srcpage=url;
+    }
     
    
      
