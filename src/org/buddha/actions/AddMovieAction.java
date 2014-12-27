@@ -36,7 +36,7 @@ public class AddMovieAction extends Action {
 		MovieForm frm=(MovieForm) form;
 		
 		
-		System.err.println("Film à sauvegarder :\n"+frm);
+		System.err.println("Film à sauvegarder 1 :\n"+frm);
 		Film fobj=new Film();
 		
 		fobj.setTitle(frm.getTitle());
@@ -47,8 +47,12 @@ public class AddMovieAction extends Action {
 		fobj.setPictureUrl(frm.getPictureUrl());
 		fobj.setProductor(frm.getProductor());
 		fobj.setSummary(frm.getSummary());
+		fobj.setIs3D("true".equalsIgnoreCase(frm.getIs3D())?"O":"N");
+		
+		System.err.println("Film à sauvegarder 2 :\n"+fobj);
 		
 		
+		//int result=0;
 		int result=dao.save(fobj);
 		
 		JSONObject jf=new JSONObject();
