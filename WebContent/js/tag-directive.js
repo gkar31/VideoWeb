@@ -4,7 +4,7 @@ angular.module('videoweb').directive('tagList', function(){
     return {
         restrict: 'AE',
         replace: true,
-        template: '<div><span class="label label-primary" ng-repeat="tag in tags">{{tag}}</span>&nbsp;</div>',
+        template: '<div><span ng-repeat="tag in tags"><span  class="label label-primary">{{tag}}</span>  </span></div>',
         scope:{
             tagString:'='
         },
