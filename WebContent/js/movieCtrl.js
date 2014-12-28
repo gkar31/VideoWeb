@@ -19,6 +19,7 @@ angular.module('videoweb').controller('movieCtrl',function movieCtrl($scope,$htt
         .success(function(data, status, headers, config) {
             console.log(data);
             $scope.films=data;
+            $scope.srcpage="pages/app-movies.html"
         })
         .error(function(data, status, headers, config) {
          alert("Error status :" +data);

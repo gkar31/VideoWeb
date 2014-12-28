@@ -3,6 +3,13 @@ angular.module('videoweb').controller('addMovieCtrl',function addMovieCtrl($scop
     
    $scope.film={};
     
+   
+   $scope.reset=function()
+   {
+	   $scope.loadFilms();
+	   $scope.srcpage="pages/app-movies.html"
+	   
+   }
     $scope.save=function()
     {
     	$http({
@@ -19,6 +26,7 @@ angular.module('videoweb').controller('addMovieCtrl',function addMovieCtrl($scop
     	    headers: {'Content-Type': 'application/x-www-form-urlencoded'}
     	}).success(function(data, status, headers, config) {
             alert("Success :" +data.message);
+            $scope.loadFilms();
         });
       
     }
