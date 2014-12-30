@@ -77,6 +77,37 @@ public class FilmDao extends VideoDbDaoAbstract {
 	}
 	
 	
+	
+	@SuppressWarnings({ "finally" })
+	public int update(Film obj)
+	{
+		int result=0;
+		Session session=null;
+		
+		try
+		{
+			session = getSessionFactory().openSession();
+			//Criteria criteria=session.createCriteria(Film.class);
+			
+			Transaction tx=session.beginTransaction();
+			session.update(obj);
+			
+		
+			
+			
+		tx.commit();
+		
+		}catch(Exception e)
+		{
+			System.err.println(e.getMessage());
+			result=1;
+		}finally{
+			session.flush();
+			session.close();
+			return result;
+		}
+		
+	}
 	@SuppressWarnings({ "finally" })
 	public Film get(int id)
 	{

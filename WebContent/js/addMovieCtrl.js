@@ -4,13 +4,20 @@ angular.module('videoweb').controller('addMovieCtrl',function addMovieCtrl($scop
    $scope.film={};
     
    
+   $scope.$on("update_child_controller", function(event, film) {
+	   alert("Maj FILM :"+$scope.film.title)
+	   $scope.film = film;
+	   });
+   
    $scope.reset=function()
    {
 	   $scope.loadFilms();
 	   $scope.srcpage="pages/app-movies.html"
 	   
    }
-    $scope.save=function()
+    
+   
+   $scope.save=function()
     {
     	$http({
     	    method: 'POST',

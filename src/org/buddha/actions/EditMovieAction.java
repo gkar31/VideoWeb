@@ -18,7 +18,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 
-public class AddMovieAction extends Action {
+public class EditMovieAction extends Action {
 	@Override
 	public ActionForward execute(ActionMapping mapping, ActionForm form,
 			HttpServletRequest request, HttpServletResponse response)
@@ -27,7 +27,7 @@ public class AddMovieAction extends Action {
 		JSONArray jarray=new JSONArray();
 		JSONObject json=new JSONObject();
 		System.out.println("------------------------");
-		System.out.println("----- AddMoviesAction -----");
+		System.out.println("----- EditMoviesAction -----");
 		System.out.println("------------------------");
 
 		
@@ -36,24 +36,25 @@ public class AddMovieAction extends Action {
 		MovieForm frm=(MovieForm) form;
 		
 		
-		System.err.println("Film à sauvegarder 1 :\n"+frm);
+		System.err.println("Film à mettre a jour 1 :\n"+frm);
 		Film fobj=new Film();
 		
-		fobj.setTitle(frm.getTitle());
+		fobj.setFilmId(frm.getFilmId());
+		fobj.setTitle(new String(frm.getTitle().getBytes(),"UTF-8"));
 		fobj.setActors(frm.getActors());
 		fobj.setCategories(frm.getCategories());
 		fobj.setDuration(frm.getDuration());
 		fobj.setIs3D(frm.getIs3D());
 		fobj.setPictureUrl(frm.getPictureUrl());
 		fobj.setDirector(frm.getProductor());
-		fobj.setSummary(frm.getSummary());
+		fobj.setSummary(new String(frm.getSummary().getBytes(),"UTF-8"));
 		fobj.setIs3D("true".equalsIgnoreCase(frm.getIs3D())?"O":"N");
 		
-		System.err.println("Film à sauvegarder 2 :\n"+fobj);
+		System.err.println("Film à mettre a jour 2 :\n"+fobj);
 		
 		
 		//int result=0;
-		int result=dao.save(fobj);
+		int result=dao.update(fobj);
 		
 		JSONObject jf=new JSONObject();
 		
@@ -61,11 +62,11 @@ public class AddMovieAction extends Action {
 		{
 			
 			jf.put("result", result);
-			jf.put("message", "Film enregistre en Base.");
+			jf.put("message", "Film mis à jour avec success.");
 		}else
 		{
 			jf.put("result",result);
-			jf.put("message", "Erreur lors de l'enregistrement du film.");
+			jf.put("message", "Erreur lors de la mise à jour du film.");
 		}
 		
 		

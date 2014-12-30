@@ -11,7 +11,7 @@ public class Film {
 	private int duration;
 	private String categories;
 	private String actors;
-	private String productor;
+	private String director;
 	private String is3D;
 	
 	
@@ -57,12 +57,7 @@ public class Film {
 	public void setActors(String actors) {
 		this.actors = actors;
 	}
-	public String getProductor() {
-		return productor;
-	}
-	public void setProductor(String productor) {
-		this.productor = productor;
-	}
+	
 	public String getIs3D() {
 		return is3D;
 	}
@@ -74,7 +69,13 @@ public class Film {
 		return "Film [filmId=" + filmId + ", title=" + title + ", summary="
 				+ summary + ", pictureUrl=" + pictureUrl + ", duration="
 				+ duration + ", categories=" + categories + ", actors="
-				+ actors + ", productor=" + productor + ", is3D=" + is3D + "]";
+				+ actors + ", productor=" + director + ", is3D=" + is3D + "]";
+	}
+	public String getDirector() {
+		return director;
+	}
+	public void setDirector(String director) {
+		this.director = director;
 	}
 	
 	

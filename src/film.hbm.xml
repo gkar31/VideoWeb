@@ -16,7 +16,7 @@
   	<property name="duration" type="int" column="duree"  />
   	<property name="categories" type="string" column="categories"  length="255"/>
   	<property name="actors" type="string" column="acteurs"  length="255"/>
-  	<property name="productor" type="string" column="realisateur"  length="255"/>
+  	<property name="director" type="string" column="realisateur"  length="255"/>
   	<property name="is3D" type="string" column="3d" length="1"/>
   	
 

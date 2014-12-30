@@ -15,6 +15,8 @@ public class MovieForm extends ActionForm implements Serializable {
 	 */
 	private static final long serialVersionUID = 6428120076616168987L;
 	
+	private int filmId;
+	
 	private String title;
 	private String summary;
 	private String pictureUrl;
@@ -43,6 +45,22 @@ public class MovieForm extends ActionForm implements Serializable {
 
 	public void setFilms(List<MovieForm> pfilms) {
 		this.films = pfilms;
+	}
+
+
+
+
+
+	public int getFilmId() {
+		return filmId;
+	}
+
+
+
+
+
+	public void setFilmId(int filmId) {
+		this.filmId = filmId;
 	}
 
 

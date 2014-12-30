@@ -1,7 +1,7 @@
 
-	<div ng-controller="addMovieCtrl">
+	<div >
 
-	<center><h2><span class="col-sm-10 label label-danger">Ajouter un Film</span></h2></center>
+	<center><h2><span class="col-sm-10 label label-danger">Edition</span></h2></center>
 	
 
     <section class="book-form">
@@ -9,13 +9,14 @@
         
         <div class="row">
             <div class="col-sm-12">
-                <form class="form-horizontal" role="form" name="bookAdd" ng-submit="save(bookAdd, book)" novalidate>
+                <form class="form-horizontal" role="form" name="bookEdit" ng-submit="update(bookEdit, film)" novalidate>
+                	<
                     <div class="book-image-previsu hidden-xs hidden-sm">
                         <img align="right" ng-src="{{book.image}}" width="250"/>
                     </div>
-                    <input type="hidden" name="id" ng-model="book.id" ng-init="-1"/>
+                    <input type="hidden" name="id" ng-model="film.filmId" ng-init="-1"/>
                     <!-- Title -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.title.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.title.$invalid)}">
                         
 						<h3><span class="col-sm-2 label label-primary">Titre Film :</span></h3>
                         <div class="col-sm-6">
@@ -23,36 +24,36 @@
                                    ng-minlength="3" ng-pattern="/[a-zA-Z]/" class="form-control" ng-focus="btitre = true" ng-blur="btitre = false"/>
                                    
                         </div>
-                        <div class="control-label has-error col-sm-8 col-sm-offset-2" ng-show="bookAdd.$dirty && bookAdd.title.$invalid && btitre">
-                            <small ng-show="bookAdd.title.$error.required">Le champ titre est obligatoire</small>
-                            <small ng-show="bookAdd.title.$error.minlength">Le champ doit contenir au moins 3
+                        <div class="control-label has-error col-sm-8 col-sm-offset-2" ng-show="bookEdit.$dirty && bookEdit.title.$invalid && btitre">
+                            <small ng-show="bookEdit.title.$error.required">Le champ titre est obligatoire</small>
+                            <small ng-show="bookEdit.title.$error.minlength">Le champ doit contenir au moins 3
                                 caractères
                             </small>
                         </div>
                     </div>
                     <!-- Duree -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.duree.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.duree.$invalid)}">
                        <h3><span class="col-sm-2 label label-primary"> Dur&eacute;e :</span></h3>
                            
                        
 
                         <div class="col-sm-6">
-                            <input type="number" name="duree" required ng-minlength="2" ng-maxlength="3" ng-init="film.duree=120"
-                                    id="duree" ng-model="film.duree" class="form-control"/>
+                            <input type="number" name="duree" required ng-minlength="2" ng-maxlength="3" 
+                                    id="duree" ng-model="film.duration" class="form-control"/>
                                     
                         </div>
 
-                        <div class="errors col-sm-8 col-sm-offset-2" ng-show="bookAdd.$dirty && bookAdd.duree.$invalid">
-                            <small ng-show="bookAdd.duree.$error.required">Le champ Duree est obligatoire</small>
-                            <small ng-show="bookAdd.duree.$error.minlength||bookAdd.duree.$error.maxlength">Le champ doit
+                        <div class="errors col-sm-8 col-sm-offset-2" ng-show="bookEdit.$dirty && bookEdit.duree.$invalid">
+                            <small ng-show="bookEdit.duree.$error.required">Le champ Duree est obligatoire</small>
+                            <small ng-show="bookEdit.duree.$error.minlength||bookEdit.duree.$error.maxlength">Le champ doit
                                 contenir au moins 2 caractères et au plus 3 caracteres.
                             </small>
-                            <small ng-show="bookAdd.duree.$error.number">Le champ ne doit contenir que des nombres
+                            <small ng-show="bookEdit.duree.$error.number">Le champ ne doit contenir que des nombres
                             </small>
                         </div>
                     </div>
                      <!-- Realisateur -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.director.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.director.$invalid)}">
                         
 						<h3><span class="col-sm-2 label label-primary">R&eacute;alisateur :</span></h3>
                         <div class="col-sm-6">
@@ -60,15 +61,15 @@
                                    ng-minlength="3" class="form-control" ng-focus="bdirector = true" ng-blur="bdirector = false"/>
                                    
                         </div>
-                        <div class="control-label has-error col-sm-8 col-sm-offset-2" ng-show="bookAdd.$dirty && bookAdd.title.$invalid && btitre">
+                        <div class="control-label has-error col-sm-8 col-sm-offset-2" ng-show="bookEdit.$dirty && bookEdit.title.$invalid && btitre">
                             
-                            <small ng-show="bookAdd.director.$error.minlength">Le champ doit contenir au moins 3
+                            <small ng-show="bookEdit.director.$error.minlength">Le champ doit contenir au moins 3
                                 caractères
                             </small>
                         </div>
                     </div>
                      <!-- Acteurs -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.director.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.director.$invalid)}">
                         
 						<h3><span class="col-sm-2 label label-primary">Acteurs :</span></h3>
                         <div class="col-sm-6">
@@ -76,51 +77,51 @@
                                    ng-minlength="3" class="form-control" ng-focus="bactors = true" ng-blur="bactors = false"/>
                                    
                         </div>
-                        <div class="control-label has-error col-sm-8 col-sm-offset-2" ng-show="bookAdd.$dirty && bookAdd.title.$invalid && btitre">
+                        <div class="control-label has-error col-sm-8 col-sm-offset-2" ng-show="bookEdit.$dirty && bookEdit.title.$invalid && btitre">
                             
-                            <small ng-show="bookAdd.director.$error.minlength">Le champ doit contenir au moins 3
+                            <small ng-show="bookEdit.director.$error.minlength">Le champ doit contenir au moins 3
                                 caractères
                             </small>
                         </div>
                     </div>
                     <!-- image -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.image.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.image.$invalid)}">
 
                         <h3><span class="col-sm-2 label label-primary"> Image :</span></h3>
 
                         <div class="col-sm-6">
                             <input type="url" name="image" id="image" required class="form-control"
-                                   ng-model="film.image"/>
+                                   ng-model="film.pictureUrl"/>
                         </div>
 
 						<div class="col-sm-8 col-sm-offset-8">
-							<img alt="jaquette" src="{{film.image}}" width="56" height="75" ng-show=" bookAdd.image.$dirty">
+							<img alt="jaquette" src="{{film.pictureUrl}}" width="56" height="75" >
 						
 						</div>
 						
 						
-                        <div class="errors col-sm-8 col-sm-offset-2" ng-show="bookAdd.$dirty && bookAdd.image.$invalid">
-                            <small ng-show="bookAdd.image.$error.required">Le champ Image est obligatoire</small>
-                            <small ng-show="bookAdd.image.$error.url">Le champ doit être une url valide</small>
+                        <div class="errors col-sm-8 col-sm-offset-2" ng-show="bookEdit.$dirty && bookEdit.image.$invalid">
+                            <small ng-show="bookEdit.image.$error.required">Le champ Image est obligatoire</small>
+                            <small ng-show="bookEdit.image.$error.url">Le champ doit être une url valide</small>
                         </div>
                     </div>
                     
                     <!-- Catégorie -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.category.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.categories.$invalid)}">
                         <h3><span class="col-sm-2 label label-primary"> Cat&eacute;gorie :</span></h3>
 
                         <div class="col-sm-6">
-                            <input type="text" id="category" required name="category" class="form-control"
-                                   ng-model="film.category"/>
+                            <input type="text" id="categories" required name="categories" class="form-control"
+                                   ng-model="film.categories"/>
                         </div>
                         <div class="errors col-sm-8 col-sm-offset-2"
-                             ng-show="bookAdd.$dirty && bookAdd.category.$invalid">
-                            <small ng-show="bookAdd.category.$error.required">Le champ Cat&eacute;gorie est obligatoire</small>
+                             ng-show="bookEdit.$dirty && bookEdit.categories.$invalid">
+                            <small ng-show="bookEdit.categories.$error.required">Le champ Cat&eacute;gorie est obligatoire</small>
                              
                         </div>
                     </div>
                     <!-- Résumé -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.summary.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.summary.$invalid)}">
                        <h3><span class="col-sm-2 label label-primary"> R&eacute;sum&eacute; :</span></h3>
 
                         <div class="col-sm-6">
@@ -128,27 +129,27 @@
                                     ng-minlength="20" ng-maxlength="5000"></textarea>
                         </div>
                          <div class="errors col-sm-8 col-sm-offset-2"
-                             ng-show="bookAdd.$dirty && bookAdd.summary.$invalid">
-                            <small ng-show="bookAdd.summary.$error.required">Le champ Cat&eacute;gorie est obligatoire</small>
-                            <small ng-show="bookAdd.summary.$error.minlength||bookAdd.duree.$error.maxlength">Le champ doit
+                             ng-show="bookEdit.$dirty && bookEdit.summary.$invalid">
+                            <small ng-show="bookEdit.summary.$error.required">Le champ Cat&eacute;gorie est obligatoire</small>
+                            <small ng-show="bookEdit.summary.$error.minlength||bookEdit.duree.$error.maxlength">Le champ doit
                                 contenir au moins 10 caractères et au plus 5000 caracteres.
                             </small> 
                         </div>
                     </div>
                    <!-- 3D -->
-                    <div class="form-group" ng-class="{'has-error':(bookAdd.$dirty && bookAdd.category.$invalid)}">
+                    <div class="form-group" ng-class="{'has-error':(bookEdit.$dirty && bookEdit.category.$invalid)}">
                         <h3><span class="col-sm-2 label label-primary"> 3D :</span></h3>
 
                         <div class="col-sm-1">
                             <input type="checkbox" id="is3D"  name="is3D" class="form-control"
-                                   ng-model="film.is3D"/> value is3D:{{film.is3D}}
+                                   ng-model="film.is3D"/>value is3D:{{film.is3D}}
                         </div>
                         
                     </div>
                     <div class="btn-toolbar" role="toolbar" aria-label="...">
                     	
                             <button type="reset" class="btn btn-info" ng-click="reset();">Reset</button>
-                            <button type="submit" class="btn btn-danger" ng-disabled="bookAdd.$invalid">Valider</button>
+                            <button type="submit" class="btn btn-danger" ng-disabled="bookEdit.$invalid">Valider</button>
                         </div>
                     </div>
                 </form>
